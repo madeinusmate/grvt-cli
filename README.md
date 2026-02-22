@@ -44,9 +44,9 @@ CLI tool and library to trade on [GRVT](https://grvt.io) markets.
 ## Installation
 
 ```bash
-pnpm add -g grvt-cli
+pnpm add -g @madeinusmate/grvt-cli
 # or
-npm install -g grvt-cli
+npm install -g @madeinusmate/grvt-cli
 ```
 
 ---
