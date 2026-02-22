@@ -1,5 +1,5 @@
 {
-  "name": "grvt-cli",
+  "name": "@madeinusmate/grvt-cli",
   "version": "0.1.0",
   "description": "CLI tool and library to trade on GRVT markets",
   "type": "module",
