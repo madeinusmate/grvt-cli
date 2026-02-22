@@ -2,6 +2,25 @@
 
 CLI tool and library to trade on [GRVT](https://grvt.io) markets.
 
+> **WARNING — READ BEFORE USING.**
+>
+> This is a **community hobby project**. It is **NOT** officially supported, endorsed, audited, or maintained by the GRVT team. No security audit or formal code review has been performed.
+>
+> **THIS SOFTWARE IS PROVIDED AS-IS WITH NO WARRANTY OF ANY KIND. THE CODE HAS NOT BEEN AUDITED FOR SECURITY VULNERABILITIES. BY USING THIS TOOL YOU ACKNOWLEDGE AND ACCEPT THE RISK OF TOTAL LOSS OF FUNDS.**
+>
+> You are solely responsible for any financial losses, leaked credentials, or unintended trades that may result from using this software. **Do NOT use this tool with funds you cannot afford to lose.**
+>
+> This tool stores your API key and private key in plaintext on disk (with `0600` file permissions). Never share your private key. Never run this on shared or untrusted machines.
+>
+> **Recommended baseline:**
+> - Only use testnet until you fully understand the CLI.
+> - Review the source code before trusting it with real funds.
+> - Keep your private key out of shell history (use `grvt setup`).
+> - Rotate API keys regularly.
+> - Never run with more funds than you can afford to lose.
+
+---
+
 ## Features
 
 - Full trading lifecycle: create, cancel, and query orders
@@ -34,7 +53,19 @@ npm install -g grvt-cli
 
 ## Quick Start
 
-### 1. Set your environment
+The fastest way to get started is the interactive setup wizard:
+
+```bash
+grvt setup
+```
+
+This walks you through choosing an environment, entering your API key, private key, and default sub-account ID -- then logs you in automatically.
+
+### Manual setup
+
+If you prefer to configure things individually:
+
+#### 1. Set your environment
 
 ```bash
 grvt config set env testnet
@@ -42,7 +73,7 @@ grvt config set env testnet
 
 Supported environments: `dev`, `staging`, `testnet`, `prod` (default: `prod`).
 
-### 2. Authenticate
+#### 2. Authenticate
 
 ```bash
 grvt auth login --api-key YOUR_API_KEY --private-key 0xYOUR_PRIVATE_KEY
@@ -57,7 +88,7 @@ grvt config set privateKey 0xYOUR_PRIVATE_KEY
 
 Credentials are stored in `~/.config/grvt/config.toml` with `0600` permissions.
 
-### 3. Set your default sub-account
+#### 3. Set your default sub-account
 
 ```bash
 grvt config set subAccountId YOUR_SUB_ACCOUNT_ID
@@ -1148,6 +1179,25 @@ pnpm test
 # E2E tests (requires testnet credentials)
 pnpm test:e2e --api-key YOUR_KEY --private-key 0xYOUR_KEY --sub-account-id YOUR_ID
 ```
+
+## Contributing
+
+Contributions are welcome! This is a community project and every bit of help matters.
+
+- **Report bugs** -- Open an [issue](../../issues) with steps to reproduce, the command you ran, and the error output.
+- **Request features** -- Open an issue describing the use case and how you'd expect the command to work.
+- **Submit PRs** -- Fork the repo, create a branch, make your changes, and open a pull request. Please include tests for new commands.
+
+```bash
+# Development workflow
+pnpm install
+pnpm dev          # watch mode (rebuilds on save)
+pnpm test         # unit tests
+pnpm lint         # type-check
+pnpm test:e2e     # E2E tests (requires testnet credentials)
+```
+
+If you find a security issue, please open an issue or reach out directly rather than disclosing it publicly.
 
 ## License
 

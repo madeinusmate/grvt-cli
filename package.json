@@ -1,6 +1,6 @@
 {
   "name": "@madeinusmate/grvt-cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "CLI tool and library to trade on GRVT markets",
   "type": "module",
   "main": "./dist/index.cjs",

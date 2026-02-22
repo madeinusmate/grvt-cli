@@ -1,4 +1,5 @@
 import { Command } from "commander";
+import { registerSetupCommand } from "./commands/setup.js";
 import { registerConfigCommands } from "./commands/config.js";
 import { registerAuthCommands } from "./commands/auth.js";
 import { registerAccountCommands } from "./commands/account.js";
@@ -20,6 +21,7 @@ program
   .option("--retries <n>", "number of retries on failure", "3")
   .option("--timeout-ms <n>", "request timeout in milliseconds", "10000");
 
+registerSetupCommand(program);
 registerConfigCommands(program);
 registerAuthCommands(program);
 registerAccountCommands(program);
